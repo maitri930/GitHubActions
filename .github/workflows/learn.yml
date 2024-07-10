@@ -1,0 +1,12 @@
+name: learn GA
+on: push
+jobs:
+  first_job:
+    runs_on: ubuntu_latest
+    steps:
+      - name: fiirst_step
+        run: echo "Hellow-World"
+    
+    
+    
+  
