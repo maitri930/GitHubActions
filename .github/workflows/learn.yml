@@ -1,5 +1,6 @@
 name: learn GA
-on: push
+on: push :
+  branches:[main]
 jobs:
   first_job:
     runs-on: ubuntu-latest
