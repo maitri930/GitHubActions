@@ -24,8 +24,8 @@ jobs:
       - name: login to DTR
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          username: maitrik
+          password: 
 
       
 
