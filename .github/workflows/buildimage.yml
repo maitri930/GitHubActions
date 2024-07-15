@@ -21,11 +21,8 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/docker/login@master
-        with: # Set the secret as an input
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      - name: login to DTR
+        run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
         env: # Set the secret in the env
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
@@ -34,4 +31,6 @@ jobs:
       - name: build
         run: ./mvnw compile jib:dockerBuild
       - name: push
+
+      
         run:  docker push odfsoft/guess-game:latest
